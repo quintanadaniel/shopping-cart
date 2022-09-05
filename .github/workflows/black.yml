@@ -18,7 +18,7 @@ jobs:
     - name: Set up Python 3.8
       uses: actions/setup-python@v3
       with:
-        python-version: "3.8"
+        python-version: ["3.8"]
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -32,7 +32,5 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Black formatter
       run: |
-        black .
-    - name: Test with pytest
-      run: |
-        pytest
+        black $(git ls-files '*.py')
+
