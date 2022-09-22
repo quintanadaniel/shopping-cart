@@ -1,0 +1,2 @@
+class ProductNotValidArgumentsException(Exception):
+    pass
